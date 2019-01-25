@@ -1,0 +1,32 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://${server.ip}:1111/eureka
+
+        fetch-registry: true
+        register-with-eureka: true
+
+    instance:
+        hostname: localhost
+        ip-address: ${server.ip}
+        prefer-ip-address: true
+
+    server:
+        enable-self-preservation: true
+        wait-time-in-ms-when-sync-empty: 0
+
+
+logging:
+    file: ${spring.application.name}.log
+    path: ./logs/
+
+
+server:
+    ip: 127.0.0.1
+    port: 1111
+
+
+spring:
+    application:
+        name: eureka-server
+

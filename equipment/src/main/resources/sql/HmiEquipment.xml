@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.krt.equipment.dao.mapper.HmiEquipmentDao">
+
+    <insert id = "addEquipment" parameterType="HmiEquipmentEntity">
+        INSERT INTO hmi_equipment (
+            equipment_id, hmi_id, hmi_ip, create_time, modify_time
+        ) VALUES (
+            #{equipmentId}, #{hmiId}, #{hmiIp}, #{createTime}, #{modifyTime}
+        )
+    </insert>
+
+</mapper>
+

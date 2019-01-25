@@ -1,0 +1,57 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://${server.ip}:1111/eureka/
+
+    instance:
+        ipAddress: ${server.ip}
+        preferIpAddress: true
+
+logging:
+    config: classpath:spring-log.xml
+    path: ./logs/
+
+mybatis:
+    config-location: classpath:mybatis.xml
+    mapper-locations: classpath:sql/*.xml
+
+
+feign:
+    hystrix:
+        enabled: false
+
+server:
+    ip: 127.0.0.1
+    port: 8098
+
+    tomcat:
+        max-threads: 500
+
+
+spring:
+    application:
+        name: equipment
+
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+
+    jackson:
+        serialization:
+            WRITE_ENUMS_USING_INDEX: true
+            WRITE_DATES_AS_TIMESTAMPS: false
+        date-format: "yyyy-MM-dd HH:mm:ss"
+
+    profiles:
+        active: krt-mysql
+
+
+---
+spring:
+    profiles: krt-mysql
+    datasource:
+        # com.mysql.cj.jdbc.Driver
+        # driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/fescar-spring-cloud
+        username: krt
+        password: 123456
+

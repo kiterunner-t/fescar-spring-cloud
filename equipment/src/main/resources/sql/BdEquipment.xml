@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.krt.equipment.dao.mapper.EquipmentDao">
+
+    <select id="getEquipmentIp" resultType="java.lang.String">
+        <![CDATA[
+        SELECT ip_addr
+        FROM bd_equipment
+        WHERE equipment_id=#{equipmentId} AND #{now}>start_time AND #{now}<=end_time
+        ]]>
+    </select>
+
+</mapper>
+
